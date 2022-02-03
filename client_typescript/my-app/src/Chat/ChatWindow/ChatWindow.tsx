@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Message, MessageProps} from './Message/Message';
 
-type Props = {
-    chat: Array<MessageProps>
+export interface ChatProps {
+    chat: MessageProps[]
 }
 
-const ChatWindow: React.FC<Props> = props => {
+export const ChatWindow = (props: ChatProps) => {
     const chat = props.chat
         .map((m: MessageProps) => <Message
             key={Date.now() * Math.random()}
@@ -18,5 +18,3 @@ const ChatWindow: React.FC<Props> = props => {
         </div>
     );
 };
-
-export default ChatWindow;

@@ -1,15 +1,15 @@
 import * as React from 'react';
 import {useState} from 'react';
 
-type ChatInputProps = {
-    
+interface ChatInputProps {
+    sendMessage: (user: string, message: string) => void
 }
 
-const ChatInput = props => {
+const ChatInput = (props: ChatInputProps) => {
     const [user, setUser] = useState('');
     const [message, setMessage] = useState('');
 
-    const onSubmit = e => {
+    const onSubmit = (e: any) => {
         e.preventDefault();
         
         const isUserProvided = user && user !== '';
@@ -23,11 +23,11 @@ const ChatInput = props => {
         }
     }
 
-    const onUserUpdate = e => {
+    const onUserUpdate = (e: {target: {value: any}}) => {
         setUser(e.target.value);
     }
 
-    const onMessageUpdate = e => {
+    const onMessageUpdate = (e: {target: {value: any}}) => {
         setMessage(e.target.value);
     }
 

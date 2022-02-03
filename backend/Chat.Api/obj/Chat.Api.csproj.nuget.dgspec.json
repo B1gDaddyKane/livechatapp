@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jensc\\Projects\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj": {}
+    "C:\\Users\\jcj.it-minds.dk\\it-minds\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jensc\\Projects\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj": {
+    "C:\\Users\\jcj.it-minds.dk\\it-minds\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jensc\\Projects\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj",
+        "projectUniqueName": "C:\\Users\\jcj.it-minds.dk\\it-minds\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj",
         "projectName": "Chat.Api",
-        "projectPath": "C:\\Users\\jensc\\Projects\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj",
-        "packagesPath": "C:\\Users\\jensc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jensc\\Projects\\livechatapp\\backend\\Chat.Api\\obj\\",
+        "projectPath": "C:\\Users\\jcj.it-minds.dk\\it-minds\\livechatapp\\backend\\Chat.Api\\Chat.Api.csproj",
+        "packagesPath": "C:\\Users\\jcj.it-minds.dk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jcj.it-minds.dk\\it-minds\\livechatapp\\backend\\Chat.Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jensc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jcj.it-minds.dk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +45,7 @@
           "dependencies": {
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.2.3, )"
             }
           },
           "imports": [
@@ -61,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

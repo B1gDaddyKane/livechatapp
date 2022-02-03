@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type MessageProps = {
+export interface MessageProps {
     user: string,
     message: string
 }
