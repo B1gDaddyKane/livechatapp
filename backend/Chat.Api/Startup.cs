@@ -41,7 +41,7 @@ namespace Chat.Api
                     policy.AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins("http://localhost:3000");
+                    .WithOrigins("https://localhost:3000");
                 });
             });
         }

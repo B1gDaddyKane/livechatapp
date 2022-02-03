@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import * as signalR from '@microsoft/signalr';
-import {ChatWindow, ChatProps} from './ChatWindow/ChatWindow';
+import {ChatWindow} from './ChatWindow/ChatWindow';
 import ChatInput from './ChatInput/ChatInput';
 import { MessageProps } from './ChatWindow/Message/Message';
+
 const Chat = () => {
     const [connection, setConnection] = useState<signalR.HubConnection | null>(null);
     const [chat, setChat] = useState<MessageProps[]>([]);
-    const latestChat = useRef<MessageProps>(null);
+    const latestChat = useRef<MessageProps[]>([]);
     
     latestChat.current = chat;
-
+    console.log(latestChat.current);
     useEffect(() => {
         const newConnection = new signalR.HubConnectionBuilder()
             .withUrl('https://localhost:5001/hubs/chat')
@@ -26,7 +27,7 @@ const Chat = () => {
                 .then(() => {
                     console.log('Connected');
 
-                    connection.on('ReceiveMessage', (message: any) => {
+                    connection.on('ReceiveMessage', (message: MessageProps) => {
                         const updatedChat = [...latestChat.current];
                         updatedChat.push(message);
 

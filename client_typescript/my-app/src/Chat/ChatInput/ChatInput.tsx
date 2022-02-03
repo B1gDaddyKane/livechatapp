@@ -23,11 +23,11 @@ const ChatInput = (props: ChatInputProps) => {
         }
     }
 
-    const onUserUpdate = (e: {target: {value: any}}) => {
+    const onUserUpdate = (e: {target: {value: string}}) => {
         setUser(e.target.value);
     }
 
-    const onMessageUpdate = (e: {target: {value: any}}) => {
+    const onMessageUpdate = (e: {target: {value: string}}) => {
         setMessage(e.target.value);
     }
 
