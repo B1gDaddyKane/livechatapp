@@ -1,6 +1,6 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v5.0",
+    "name": ".NETCoreApp,Version=v6.0.101",
     "signature": ""
   },
   "compilationOptions": {
@@ -30,7 +30,7 @@
     "debugType": "portable"
   },
   "targets": {
-    ".NETCoreApp,Version=v5.0": {
+    ".NETCoreApp,Version=v6.0": {
       "Chat.Api/1.0.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.2.3",

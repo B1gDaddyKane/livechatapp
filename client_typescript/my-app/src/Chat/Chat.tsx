@@ -11,10 +11,9 @@ const Chat = () => {
     const latestChat = useRef<MessageProps[]>([]);
     
     latestChat.current = chat;
-    console.log(latestChat.current);
     useEffect(() => {
         const newConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://localhost:5001/hubs/chat')
+            .withUrl('https://localhost:5001/hubs/chat', {accessTokenFactory: () => this.loginToken })
             .withAutomaticReconnect()
             .build();
 

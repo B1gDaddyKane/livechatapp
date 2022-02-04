@@ -6,5 +6,7 @@ namespace Chat.Api.Hubs.Clients
 public interface IChatClient
 {
     Task ReceiveMessage(ChatMessage message);
+    
+    
 }
 }

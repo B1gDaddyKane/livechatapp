@@ -41,7 +41,7 @@ namespace Chat.Api
                     policy.AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins("https://localhost:3000");
+                    .WithOrigins("http://localhost:3000");
                 });
             });
         }
@@ -61,6 +61,8 @@ namespace Chat.Api
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseAuthentication();
             
             app.UseEndpoints(endpoints =>
             {
