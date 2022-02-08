@@ -4,9 +4,10 @@ using Chat.Api.Hubs.Clients;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using Chat.Api.Database;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Chat.Api.Hubs
 {
+    [Authorize]
     public class ChatHub : Hub<IChatClient>
     {
         public async Task SendMessage(ChatMessage message)

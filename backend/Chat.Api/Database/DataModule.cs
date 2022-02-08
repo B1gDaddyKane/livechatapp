@@ -10,6 +10,7 @@ namespace Chat.Api.Database
 
         public static void SaveMessage(ChatMessage message)
         {
+            Console.WriteLine(db.DbPath);
             db.Add(new Message {Text = message.Message, UserName = message.User,});
             db.SaveChanges();
         }

@@ -13,7 +13,7 @@ const Chat = () => {
     latestChat.current = chat;
     useEffect(() => {
         const newConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://localhost:5001/hubs/chat', {accessTokenFactory: () => this.loginToken })
+            .withUrl('https://localhost:5001/hubs/chat')
             .withAutomaticReconnect()
             .build();
 
@@ -38,8 +38,8 @@ const Chat = () => {
 
     const sendMessage = async (user: string, message: string) => {
         const chatMessage = {
-            user: user,
-            message: message
+            user,
+            message
         };
         if (connection != null){
             if (connection.connectionId != null) {
