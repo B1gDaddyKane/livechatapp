@@ -1,16 +1,34 @@
-import * as React from 'react';
-import {useState, useEffect} from 'react';
-import * as signalR from '@microsoft/signalr';
+import {useContext} from 'react';
+import {LoginForm} from './LoginForm';
+import axios from 'axios';
+import LoginContext from '../Context/LoginContext';
 const Login = () => {
-    const [connection, setConnection] = useState<signalR.HubConnection | null>(null);
-    const [login, setLogin] = useState(null);
-    //TODO: Add context
-    useEffect(() => {
-        const newConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://localhost:5001/Chat/Hub')
-            .withAutomaticReconnect()
-            .build();
+    const {loggedIn, setLoggedIn} = useContext(LoginContext);
+    const URL = "https://localhost:5001/login";
+    const changeHandler = (event: boolean) => setLoggedIn(event);
 
-        setConnection(newConnection);
-    }, []);
-}
+    const sendLogin = async (Name: string, Password: string) =>{
+        const LoginMessage = {
+            Name,
+            Password
+        }
+        return axios
+            .post(URL,
+                LoginMessage
+            )
+            .then(response => {
+                console.log(response.data);
+                changeHandler(true);
+                
+                return response.data;
+            });
+    }
+
+    return(
+            <div>
+                <LoginForm sendLogin={sendLogin}/>
+            </div>
+    );
+};
+
+export default Login;

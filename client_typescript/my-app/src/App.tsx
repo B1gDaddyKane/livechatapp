@@ -1,11 +1,11 @@
-import React from 'react';
-import Chat from './Chat/Chat';
+import {LandingPage} from './LandingPage';
 
-function App() {
-  return (
-    <div style={{ margin: '0 30%' }}>
-      <Chat />
-    </div>
+function App() {  
+  
+  return(
+      <div>
+        <LandingPage/>
+      </div>
   );
 }
 

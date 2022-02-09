@@ -14,5 +14,10 @@ namespace Chat.Api.Database
             db.Add(new Message {Text = message.Message, UserName = message.User,});
             db.SaveChanges();
         }
+
+        public static bool CheckUser(string user)
+        {
+            return db.Users.Any(x => x.Name == user);
+        }
     }
 }

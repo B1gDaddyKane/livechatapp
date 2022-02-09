@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Mvc;
+using Chat.Api.Database;
+using Chat.Api.Models;
 using System;
-using System.Web;
-using System.Web.Mvc;
 
 namespace Chat.Api.Controllers
 {
-    public class LoginController : Controller
+    [ApiController]
+    [Route("login")]
+    public class LoginController : ControllerBase
     {
-        [Route("/login")]
-        public ActionResult login()
-        {
-            ViewData["Message"] = "This is test string";
-            return View();
+        [HttpPost]
+        public ActionResult<bool> login(LoginMessage message)
+        {  
+          return DataModule.CheckUser(message.Name);
         }
     }
 }

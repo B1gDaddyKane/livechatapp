@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Chat.Api.Hubs;
+using Chat.Api.Controllers;
 
 namespace Chat.Api
 {
@@ -35,27 +36,27 @@ namespace Chat.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Chat.Api", Version = "v1" });
             });
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.Authority = "https://localhost:5001";
-                options.Events = new JwtBearerEvents
-                {
-                    OnMessageReceived = context =>
-                    {
-                        var accessToken = context.Request.Query["access_token"];
-                        var path = context.HttpContext.Request.Path;
-                        if(!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs/chat"))
-                        {
-                            context.Token = accessToken;
-                        }
-                        return Task.CompletedTask;
-                    }
-                };
-            });
+            // services.AddAuthentication(options =>
+            // {
+            //     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            // }).AddJwtBearer(options =>
+            // {
+            //     options.Authority = "https://localhost:5001";
+            //     options.Events = new JwtBearerEvents
+            //     {
+            //         OnMessageReceived = context =>
+            //         {
+            //             var accessToken = context.Request.Query["access_token"];
+            //             var path = context.HttpContext.Request.Path;
+            //             if(!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs/chat"))
+            //             {
+            //                 context.Token = accessToken;
+            //             }
+            //             return Task.CompletedTask;
+            //         }
+            //     };
+            // });
 
             services.AddSignalR();
             services.AddCors(options =>

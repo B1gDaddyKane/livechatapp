@@ -7,7 +7,7 @@ using Chat.Api.Database;
 using Microsoft.AspNetCore.Authorization;
 namespace Chat.Api.Hubs
 {
-    [Authorize]
+    //[Authorize]
     public class ChatHub : Hub<IChatClient>
     {
         public async Task SendMessage(ChatMessage message)
