@@ -17,9 +17,9 @@ const Login = () => {
                 LoginMessage
             )
             .then(response => {
-                console.log(response.data);
-                changeHandler(true);
-                
+                if(response.data){
+                    changeHandler(true);
+                }
                 return response.data;
             });
     }

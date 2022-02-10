@@ -11,7 +11,7 @@ namespace Chat.Api.Controllers
     {
         [HttpPost]
         public ActionResult<bool> login(LoginMessage message)
-        {  
+        {
           return DataModule.CheckUser(message.Name);
         }
     }
